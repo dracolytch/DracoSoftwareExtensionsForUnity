@@ -6,6 +6,8 @@ public class EventScript : MonoBehaviour {
 
     public UnityEventString MyStringEvent;
 
+    UnityEventString myNullEvent = null;
+
     public float delay = 1f;
     float elapsed = 0f;
 
@@ -16,6 +18,7 @@ public class EventScript : MonoBehaviour {
         {
             elapsed = 0f;
             gameObject.Invoke(MyStringEvent, "Test");
+            gameObject.Invoke(myNullEvent, "This should fail!");
         }
     }
 

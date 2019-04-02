@@ -18,6 +18,10 @@ public static class GameObjectExtensions {
         {
             evt.Invoke(data);
         }
+        else
+        {
+            Debug.LogWarning("Tried to invoke a null event with the follwing payload: " + data.ToString());
+        }
     }
 
     /// <summary>
