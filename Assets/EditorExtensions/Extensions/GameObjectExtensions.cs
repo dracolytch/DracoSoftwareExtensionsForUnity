@@ -5,6 +5,19 @@ using UnityEngine.Events;
 
 public static class GameObjectExtensions {
 
+
+    public static void Trigger(this GameObject self, UnityEvent evt)
+    {
+        if (evt != null)
+        {
+            evt.Invoke();
+        }
+        else
+        {
+            Debug.LogWarning("Tried to invoke a null UnityEvent");
+        }
+    }
+
     /// <summary>
     /// Safely invoke a UnityEvent
     /// </summary>
@@ -12,7 +25,7 @@ public static class GameObjectExtensions {
     /// <param name="self"></param>
     /// <param name="evt">The event</param>
     /// <param name="data">The payload for the event</param>
-    public static void Invoke<T>(this GameObject self, UnityEvent<T> evt, T data)
+    public static void Trigger<T>(this GameObject self, UnityEvent<T> evt, T data)
     {
         if (evt != null)
         {
@@ -20,7 +33,7 @@ public static class GameObjectExtensions {
         }
         else
         {
-            Debug.LogWarning("Tried to invoke a null event with the follwing payload: " + data.ToString());
+            Debug.LogWarning("Tried to invoke a null UnityEvent with type '" + typeof(T).ToString() + "' with the follwing payload: " + data.ToString());
         }
     }
 
@@ -46,7 +59,7 @@ public static class GameObjectExtensions {
     /// <param name="self"></param>
     /// <param name="callback">The action to take</param>
     /// <returns>The component found</returns>
-    public static T WithComponent<T>(this GameObject self, System.Action<T> callback) where T : Component
+    public static T GetComponent<T>(this GameObject self, System.Action<T> callback) where T : Component
     {
         var component = self.GetComponent<T>();
 
@@ -65,7 +78,7 @@ public static class GameObjectExtensions {
     /// <param name="self"></param>
     /// <param name="callback"></param>
     /// <returns>The component, if found</returns>
-    public static T WithComponentRequired<T>(this GameObject self, System.Action<T> callback) where T : Component
+    public static T GetComponentRequired<T>(this GameObject self, System.Action<T> callback) where T : Component
     {
         var component = self.GetComponentRequired<T>();
 

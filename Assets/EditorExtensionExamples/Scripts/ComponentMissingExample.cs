@@ -8,13 +8,13 @@ public class ComponentMissingExample : MonoBehaviour {
 	void Start () {
 
         // Fails silently if the component isn't there
-        gameObject.WithComponent((Renderer r) =>
+        gameObject.GetComponent((Renderer r) =>
         {
             r.material.color = Color.black;
         });
 
-        // Fails with a debug, if the component isn't there
-        gameObject.WithComponentRequired((Renderer r) =>
+        // Fails with a debug error if the component isn't there
+        gameObject.GetComponentRequired((Renderer r) =>
         {
             r.material.color = Color.black;
         });

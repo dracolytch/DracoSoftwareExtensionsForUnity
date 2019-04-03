@@ -9,7 +9,7 @@ public class ComponentExample : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        gameObject.WithComponent((Renderer rx) =>
+        gameObject.GetComponent((Renderer rx) =>
         {
             rx.material.color = Color.blue;
         });
@@ -18,7 +18,7 @@ public class ComponentExample : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.WithComponent((Rigidbody rigid) =>
+        gameObject.GetComponent((Rigidbody rigid) =>
         {
             rigid.AddForce(Vector3.up * 10);
         });

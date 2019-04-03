@@ -17,8 +17,8 @@ public class EventScript : MonoBehaviour {
         if (elapsed >= delay)
         {
             elapsed = 0f;
-            gameObject.Invoke(MyStringEvent, "Test");
-            gameObject.Invoke(myNullEvent, "This should fail!");
+            gameObject.Trigger(MyStringEvent, "Test");
+            gameObject.Trigger(myNullEvent, "This should fail!");
         }
     }
 
