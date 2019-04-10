@@ -89,4 +89,28 @@ public static class GameObjectExtensions {
 
         return component;
     }
+
+    /// <summary>
+    /// Get a component, take a different action if it isn't there
+    /// </summary>
+    /// <typeparam name="T">Component Type</typeparam>
+    /// <param name="self">object being extended</param>
+    /// <param name="success">Take this action if the component exists</param>
+    /// <param name="failure">Take this action if the component does not exist</param>
+    /// <returns></returns>
+    public static T GetComponent<T>(this GameObject self, System.Action<T> success, System.Action failure) where T : Component
+    {
+        var component = self.GetComponent<T>();
+
+        if (component != null)
+        {
+            success.Invoke(component);
+            return component;
+        }
+        else
+        {
+            failure.Invoke();
+            return null;
+        }
+    }
 }
