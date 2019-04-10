@@ -23,7 +23,7 @@ public class RangeInt : Range<int> {
 
 [Serializable]
 public class RangeFloat : Range<float> {
-    RangeFloat()
+    public RangeFloat()
     {
         Min = 0;
         Max = 1;
@@ -38,7 +38,7 @@ public class RangeFloat : Range<float> {
 
 [Serializable]
 public class RangeColor : Range<Color> {
-    RangeColor()
+    public RangeColor()
     {
         Min = Color.HSVToRGB(0f, 0f, 0f);
         Max = Color.HSVToRGB(0.999f, 1f, 1f);

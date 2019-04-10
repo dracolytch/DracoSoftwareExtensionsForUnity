@@ -33,7 +33,7 @@ public static class GameObjectExtensions {
         }
         else
         {
-            Debug.LogWarning("Tried to invoke a null UnityEvent with type '" + typeof(T).ToString() + "' with the follwing payload: " + data.ToString());
+            Debug.LogWarning("Tried to invoke a null UnityEvent on " + self.name + " with type '" + typeof(T).ToString() + "' with the follwing payload: " + data.ToString());
         }
     }
 
